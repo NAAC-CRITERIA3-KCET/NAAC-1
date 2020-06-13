@@ -1,7 +1,8 @@
 <?php
   include 'dbconfig.php';
-  $username=$_POST['username'];
-  $password=$_POST['password'];
+  include 'utility.php';
+  getData($username);
+  getData($password);
   if(($username=='username') && ($password=='password'))
   {
     header("Location: index.php");
