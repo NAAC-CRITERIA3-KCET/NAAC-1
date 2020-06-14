@@ -1,11 +1,10 @@
 <?php
   include 'dbconfig.php';
   include 'utility.php';
-  getData($username);
-  getData($password);
+  $username=getData($connect,$username);
+  $password=getData($connect,$password);
   $sql=mysqli_query($connect,"select * from auth_user where username='$username' and password='$password' ");
-  $result=mysqli_num_rows($sql);
-  if($result==1)
+  if($result=mysqli_fetch_assoc($sql))
   {
     header("Location: index.php");
   }
